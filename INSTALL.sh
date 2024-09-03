@@ -14,7 +14,7 @@ sudo apt install keepassxc kopia kopia-ui -y &&
 # --- ohmyzsh ---
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
 
-brew install curl jq zsh zsh-autosugestions zsh-syntax-highlighting eza zoxide git go luarocks lazygit node neovim ripgrep xclip syncthing fzf eza powerlevel10k yazi nvm &&
+brew install curl jq zsh zsh-autosuggestions zsh-syntax-highlighting eza zoxide git go luarocks lazygit node neovim ripgrep xclip syncthing fzf powerlevel10k yazi nvm &&
 
 echo -e "\nInstalação de aplicativos finalizada!\n"
 
