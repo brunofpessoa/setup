@@ -14,7 +14,7 @@ source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highl
 eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
 alias fk=fuck
-eval "$(fzf --zsh)"
+source <(fzf --zsh)
 #
 # FZF Preview
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
