@@ -15,7 +15,7 @@ echo "Atualizando repositórios..."
 sudo apt update
 
 echo "Instalando pacotes..."
-sudo apt install curl gnome-tweaks gnome-shell-extensions zsh unzip python3 build-essential -y
+sudo apt install curl gnome-tweaks gnome-shell-extensions ansible zsh unzip python3 build-essential -y
 
 echo "Instalando Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
