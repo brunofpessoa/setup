@@ -25,6 +25,7 @@ echo "Instalando pacotes com o Homebrew..."
 brew install tmux git jq xclip nvm zsh-autosuggestions zsh-syntax-highlighting eza bat zoxide go luarocks lazygit neovim ripgrep fzf powerlevel10k
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+sudo cp ./bin/tmuxer /usr/local/bin
 
 mkdir ~/.nvm
 export NVM_DIR="$HOME/.nvm"

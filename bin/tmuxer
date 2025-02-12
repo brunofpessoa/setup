@@ -1,0 +1,19 @@
+#!/bin/bash
+
+PROJECTS_DIR=("$HOME/projetos" "$HOME")
+
+SELECTED_DIR=$(find "${PROJECTS_DIR[@]}" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf)
+
+[ -z "$SELECTED_DIR" ] && exit 1
+
+SESSION_NAME=$(basename "$SELECTED_DIR")
+
+if ! tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+    tmux new-session -d -s "$SESSION_NAME" -c "$SELECTED_DIR"
+fi
+
+if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$SESSION_NAME"
+else
+    tmux attach-session -t "$SESSION_NAME"
+fi
