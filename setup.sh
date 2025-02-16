@@ -5,16 +5,12 @@ if [ "$EUID" -eq 0 ]; then
     exit 1
 fi
 
-read -p "Deseja restaurar as chaves SSH? (S/N): " restore_ssh
 read -p "Deseja criar os diretórios ~/projetos e ~/notas? (S/N): " create_dirs
 read -p "Instalar Node LTS? (S/N): " install_node_lts
 read -p "Deseja executar 'apt upgrade'? (S/N): " do_apt_upgrade
 read -p "Instalar fonte CascadiaCode Nerd Font? (S/N): " install_nerd_font
 read -p "Instalar Catppuccin para o Gnome Terminal? (S/N): " install_catppuccin
-
-if [[ "$restore_ssh" =~ ^[YySs]$ ]]; then
-    ./restore_ssh_keys.sh
-fi
+read -p "Deseja restaurar as chaves SSH? (S/N): " restore_ssh
 
 echo "Atualizando repositórios..."
 sudo apt update
@@ -58,6 +54,10 @@ fi
 
 if [[ "$do_apt_upgrade" =~ ^[YySs]$ ]]; then
     sudo apt upgrade -y
+fi
+
+if [[ "$restore_ssh" =~ ^[YySs]$ ]]; then
+    ./restore_ssh_keys.sh
 fi
 
 echo "Instalando Oh My Zsh..."
