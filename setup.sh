@@ -12,6 +12,10 @@ read -p "Instalar fonte CascadiaCode Nerd Font? (S/N): " install_nerd_font
 read -p "Instalar Catppuccin para o Gnome Terminal? (S/N): " install_catppuccin
 read -p "Deseja restaurar as chaves SSH? (S/N): " restore_ssh
 
+echo "Adicionando repositórios APT..."
+curl -s https://kopia.io/signing-key | sudo gpg --dearmor -o /etc/apt/keyrings/kopia-keyring.gpg
+echo "deb [signed-by=/etc/apt/keyrings/kopia-keyring.gpg] http://packages.kopia.io/apt/ stable main" | sudo tee /etc/apt/sources.list.d/kopia.list
+
 echo "Atualizando repositórios..."
 sudo apt update
 
@@ -23,7 +27,7 @@ echo "Instalando Homebrew..."
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 echo "Instalando pacotes com o Homebrew..."
-brew install tmux git jq xclip nvm zsh-autosuggestions zsh-syntax-highlighting eza bat zoxide go luarocks lazygit neovim ripgrep fzf powerlevel10k
+brew install tmux git jq xclip nvm zsh-autosuggestions zsh-syntax-highlighting eza bat zoxide go luarocks lazygit neovim ripgrep fzf powerlevel10k mvn kopia kopia-ui
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo cp ./bin/tmuxer /usr/local/bin
